@@ -19,6 +19,10 @@ public class Seller implements Serializable{
 	
 	static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
+	public Seller() {
+		
+	}
+	
 	public Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department) {
 		this.id = id;
 		this.name = name;
@@ -63,6 +67,10 @@ public class Seller implements Serializable{
 	public Double getBaseSalary() {
 		return baseSalary;
 	}
+	
+	public void setBaseSalary(Double baseSalary) {
+		this.baseSalary = baseSalary;
+	}
 
 	public Department getDepartment() {
 		return department;
@@ -89,9 +97,12 @@ public class Seller implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 	
+	@Override
 	public String toString() {
-		return id + ", " + name + ", " + email + ", " + sdf.format(birthDate);
+		return id + ", " + name + ", " + email + " - " + sdf.format(birthDate) + ", $" + String.format("%.2f", baseSalary) + " (" + department + ")";
 	}
+	
+	
 	
 	
 }
